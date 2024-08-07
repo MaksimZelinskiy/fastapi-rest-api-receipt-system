@@ -44,7 +44,7 @@ async def register_user(user: schemas.UserCreate):
     )
     return JSONResponse(status_code=status.HTTP_201_CREATED, content={"access_token": access_token, "token_type": "bearer"})
 
-@router.post("/login", response_model=schemas.Token)
+@router.post("/token", response_model=schemas.Token)
 async def login_for_access_token(login_request: OAuth2PasswordRequestForm = Depends()):
     """
     Авторизація юзера.

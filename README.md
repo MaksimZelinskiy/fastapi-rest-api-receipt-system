@@ -115,36 +115,36 @@ project/
   {
     "products": [
       {
-        "name": "string",
-        "price": "decimal",
-        "quantity": "int"
+        "name": string,
+        "price": decimal,
+        "quantity": int
       }
     ],
     "payment": {
-      "type": "cash" / "cashless",
-      "amount": "decimal"
+      "type": "cash" | "cashless",
+      "amount": decimal
     }
   }
   ```
 - **Відповідь**:
   ```json
   {
-    "id": "int",
+    "id": int,
     "products": [
       {
-        "name": "string",
-        "price": "decimal",
-        "quantity": "int",
-        "total": "decimal"
+        "name": string,
+        "price": decimal,
+        "quantity": int,
+        "total": decimal
       }
     ],
     "payment": {
-      "type": "cash" / "cashless",
-      "amount": "decimal"
+      "type": "cash" | "cashless",
+      "amount": decimal
     },
-    "total": "decimal",
-    "rest": "decimal",
-    "created_at": "datetime"
+    "total": decimal,
+    "rest": decimal,
+    "created_at": datetime
   }
   ```
 
@@ -166,19 +166,19 @@ project/
       "id": "int",
       "products": [
         {
-          "name": "string",
-          "price": "decimal",
-          "quantity": "int",
+          "name": string,
+          "price": decimal,
+          "quantity": int,
           "total": "decimal"
         }
       ],
       "payment": {
-        "type": "cash" / "cashless",
-        "amount": "decimal"
+        "type": "cash" | "cashless",
+        "amount": decimal
       },
-      "total": "decimal",
-      "rest": "decimal",
-      "created_at": "datetime"
+      "total": decimal,
+      "rest": decimal,
+      "created_at": datetime
     }
   ]
   ```
@@ -188,21 +188,10 @@ project/
 - **Метод**: GET
 - **Параметри**:
   - `receipt_id`: int (path)
-  - `char_per_line`: int (query, за замовчуванням: 40)
+  - `char_per_line`: int (query, 40 по стандарту)
 - **Відповідь**:
-  ```plaintext
-                ФОП Name                 
-========================================
-1.0 x 100.01                            
-name_product                      100.01
-========================================
-СУМА                              100.01
-Готівка                           101.01
-Решта                               1.00
-========================================
-            07.08.2024 02:37            
-          Дякуємо за покупку!           
-  ```
+![Снимок экрана](https://github.com/user-attachments/assets/897dfaef-d465-41ac-ae6a-fbcd5eb6fd36)
+
 
 ## Налаштування та встановлення
 
@@ -211,7 +200,7 @@ name_product                      100.01
 1. Клонування репозиторію:
    ```bash
    git clone https://github.com/MaksimZelinskiy/fastapi-rest-api-receipt-system.git
-   cd fastapi-rest-api-receipt-system
+   cd fastapi-rest-api-receipt-system/
    ```
 
 2. Побудова та запуск Docker контейнерів:
@@ -244,4 +233,4 @@ name_product                      100.01
 - **Публічний перегляд чеків**:
   - Перевірити, чи може будь-хто, знаючи ID чеку, переглянути чек у текстовому вигляді.
 - **Некоректні дії**:
-  - Переконатись, що API правильно обробляє некоректні запити та
+  - Переконатись, що API правильно обробляє некоректні запити

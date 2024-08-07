@@ -13,3 +13,4 @@ jinja2
 httpx
 pytest
 pytest-asyncio
+babel

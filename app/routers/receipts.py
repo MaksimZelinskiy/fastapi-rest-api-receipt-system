@@ -13,7 +13,7 @@ from ..database import database
 from ..config import dictionaries
 from sqlalchemy import and_, or_
 
-import locale 
+from babel.numbers import format_currency as babel_format_currency
 
 router = APIRouter()
 
@@ -39,6 +39,12 @@ async def create_receipt(receipt: schemas_receipt.ReceiptCreate, current_user: s
 
     # Загальна сума чека
     sum_price = sum(item.price * item.quantity for item in receipt.products)
+    
+    if sum_price < receipt.payment.amount:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Ваша сума платежу (payment.amount) перевищує загальну суму товарів чека."
+        )    
     query = models_receipt.receipts.insert().values(
         user_id=current_user.id,
         created_at=datetime.utcnow(),
@@ -207,9 +213,10 @@ def format_receipt(receipt, items: List[dict], user, line_width: int) -> str:
         return f"{left:<{left_width}} {right}"
     
     def format_currency(value: float) -> str:
-        """Форматує число з роздільниками тисяч. 2000 -> 2 000"""
-        return locale.format_string("%0.2f", value, grouping=True)
-
+        """Форматує число з роздільниками тисяч."""
+        formatted = babel_format_currency(value, currency='', locale='uk_UA').strip()
+        return formatted.replace(u'\xa0', ' ').replace(',', '.')
+    
     # Заголовок чека
     header = f"ФОП {user['name']}".center(line_width)
     separator = "=" * line_width

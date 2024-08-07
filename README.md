@@ -115,13 +115,13 @@ project/
   {
     "products": [
       {
-        "name": string",
-        "price": decimal",
+        "name": "string",
+        "price": "decimal",
         "quantity": "int"
       }
     ],
     "payment": {
-      "type": "cash" | "cashless",
+      "type": "cash" or "cashless",
       "amount": "decimal"
     }
   }
@@ -139,7 +139,7 @@ project/
       }
     ],
     "payment": {
-      "type": "cash" | "cashless",
+      "type": "cash" or "cashless",
       "amount": "decimal"
     },
     "total": "decimal",
@@ -173,7 +173,7 @@ project/
         }
       ],
       "payment": {
-        "type": "cash" | "cashless",
+        "type": "cash" or "cashless",
         "amount": "decimal"
       },
       "total": "decimal",

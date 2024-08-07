@@ -50,7 +50,7 @@ def test_registration(client):
 def test_login(client):
     # тест на авторизації
 
-    response = client.post("/login", data={"username": "testuser", "password": "password"})
+    response = client.post("/token", data={"username": "testuser", "password": "password"})
     assert response.status_code == 200
     data = response.json()
     assert "access_token" in data

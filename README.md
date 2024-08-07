@@ -115,36 +115,36 @@ project/
   {
     "products": [
       {
-        "name": string,
-        "price": decimal,
-        "quantity": int
+        "name": string",
+        "price": decimal",
+        "quantity": "int"
       }
     ],
     "payment": {
       "type": "cash" | "cashless",
-      "amount": decimal
+      "amount": "decimal"
     }
   }
   ```
 - **Відповідь**:
   ```json
   {
-    "id": int,
+    "id": "int",
     "products": [
       {
-        "name": string,
-        "price": decimal,
-        "quantity": int,
-        "total": decimal
+        "name": "string",
+        "price": "decimal",
+        "quantity": "int",
+        "total": "decimal"
       }
     ],
     "payment": {
       "type": "cash" | "cashless",
-      "amount": decimal
+      "amount": "decimal"
     },
-    "total": decimal,
-    "rest": decimal,
-    "created_at": datetime
+    "total": "decimal",
+    "rest": "decimal",
+    "created_at": "datetime"
   }
   ```
 
@@ -154,11 +154,11 @@ project/
 - **Параметри**:
   - `skip`: int (за замовчуванням: 0)
   - `limit`: int (за замовчуванням: 10)
-  - `start_date`: datetime
-  - `end_date`: datetime
-  - `min_total`: float
-  - `max_total`: float
-  - `payment_type`: string
+  - `start_date`: "datetime"
+  - `end_date`: "datetime"
+  - `min_total`: "float"
+  - `max_total`: "float"
+  - `payment_type`: "string"
 - **Відповідь**:
   ```json
   [
@@ -166,19 +166,19 @@ project/
       "id": "int",
       "products": [
         {
-          "name": string,
-          "price": decimal,
-          "quantity": int,
+          "name": "string",
+          "price": "decimal",
+          "quantity": "int",
           "total": "decimal"
         }
       ],
       "payment": {
         "type": "cash" | "cashless",
-        "amount": decimal
+        "amount": "decimal"
       },
-      "total": decimal,
-      "rest": decimal,
-      "created_at": datetime
+      "total": "decimal",
+      "rest": "decimal",
+      "created_at": "datetime"
     }
   ]
   ```
@@ -190,6 +190,7 @@ project/
   - `receipt_id`: int (path)
   - `char_per_line`: int (query, 40 по стандарту)
 - **Відповідь**:
+  
 ![Снимок экрана](https://github.com/user-attachments/assets/897dfaef-d465-41ac-ae6a-fbcd5eb6fd36)
 
 

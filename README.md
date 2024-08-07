@@ -1,7 +1,3 @@
-# fastapi-rest-api-receipt-system
-
-## README
-
 # Тестове завдання для Python Backend Developer
 
 Метою цього проєкту є розробка REST API для створення та перегляду чеків з реєстрацією та авторизацією користувачів.
